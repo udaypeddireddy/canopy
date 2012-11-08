@@ -1,0 +1,54 @@
+<%= form_for(@placement_fulfilment) do |f| %>
+  <% if @placement_fulfilment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@placement_fulfilment.errors.count, "error") %> prohibited this placement_fulfilment from being saved:</h2>
+
+      <ul>
+      <% @placement_fulfilment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+   
+  <% end %>
+
+<table>
+  <tr><td><b>
+    <%= f.label :vendor_id %>:</b></td><td height="30">
+     <%= f.select :vendor_id, vendors_menu_collection(), :selected => 1 %>  || <%= link_to "New Vendor", new_vendor_path  %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :subvendor_id %>:</b></td><td height="30">
+     <%= f.select :subvendor_id, child_vendors_menu_collection(), :selected => 1 %>  
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :client_id %>:</b></td><td height="30">
+    <%= f.select :client_id, clients(), :prompt => "select" %>  
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :consultant_id %>:</b></td><td height="30">
+    <%= f.select :consultant_id, consultants_menu_collection(), :prompt => "select" %>  || <%= link_to "Consultant", newconsultant_path  %>
+  </td></tr>
+  <tr><td><b><%= f.label :consultant_type %>:</b></td><td height="30">
+   <%= f.select :consultant_type, options_for_select(["Select One", "C2C", "W2"]) %>
+  	</td></tr>
+  <tr><td><b>
+    <%= f.label :salesperson_id %>:</b></td><td height="30">
+    <%= f.select :salesperson_id, recruiters_menu_collection(), :prompt => "select" %>  || <%= link_to "New Sales Person", newconsultant_path  %>
+  </td></tr>
+  <tr><td><b>
+  
+   <%= f.hidden_field :recruiter_id, :value=>current_user.id %>
+  </td></tr>
+  <tr><td><b>
+  	
+  	<%= f.label :rate_code %>:</b></td><td height="30">
+ <%= f.text_field :rate_code %>
+  	</td></tr>
+ 
+ 
+  <tr><td></td>
+   <td><%= f.submit "Submit", :class=>"button_small" %> &nbsp;&nbsp;
+   	<button class="button_small"><%= link_to 'Back', placement_fulfilments_path%></button>
+  </td></tr>
+</table>
+<% end %>

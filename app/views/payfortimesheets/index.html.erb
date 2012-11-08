@@ -1,0 +1,4 @@
+<%= form_tag payfortimesheets_path  do %>
+<%= select_tag :user_id, options_for_select(  @user_profile.collect{|x| [x.firstname,x.id]}.insert(0,"Select")) %>
+<%= submit_tag "submit" %>
+<% end %>

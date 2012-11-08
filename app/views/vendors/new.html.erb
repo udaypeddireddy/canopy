@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<meta http-equiv="refresh" content="100" /> -->	
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+  <%= stylesheet_link_tag "menustyles.css" %>
+      
+        <%= stylesheet_link_tag "Styles.css" %>
+        <%= stylesheet_link_tag "reset-min.css" %>
+        
+ <style >
+ 	
+ .tbl
+ {
+ 	border: solid 1px;
+ }	
+ 	
+</style>
+
+
+<script>
+function funback(link)
+{
+	window.location.href =link;
+	
+}
+</script>
+        
+
+</head>
+<body>
+	
+<%= form_for (@vendor) do |f| %>
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+            <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+                
+                        <img src="../../assets/logo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                             <%= render :partial=>"partials/link" %>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+     <!--       <div class="headingbg_img">
+                <div class="headingbg_padding">
+                    &nbsp;</div>
+                <div id="TransBg">
+                    &nbsp;</div>
+                <div class="lineheight">
+                    &nbsp;</div>
+                <div class="menu_space">
+                    &nbsp;</div>
+               </div>       -->
+               
+               
+            <div class="innercontentTS">
+           
+    
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vendors
+                        </b></td><td align="center">
+        
+               <%= render :partial=>'partials/welcome' %>
+                 
+                </td>
+                      </tr>
+                      
+
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td>
+                    	                 
+<div align="center">
+
+<table border="0" >
+<% if @vendor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
+
+      <ul>
+      <% @vendor.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+      <% end %>
+      </ul>
+</td></tr>
+<% end %>
+
+<tr><td><b>
+<%= f.label :parent_vendor %></b></td>
+<td height="30"> <%= f.select :parent_id,  vendors_menu_collection(), :selected =>params[:vid] %>
+</td></tr>
+  <tr><td><span style="color: Red">*</span><b>
+    <%= f.label :name %>:</b></td><td height="30">
+   <font><%= f.text_field :name %></font>
+  </td></tr>
+ 
+  <tr><td><span style="color: Red">*</span><b>
+    <%= f.label :address1 %>:</b></td>
+    <td height="30">  <%= f.text_field :address1 %></td></tr>
+  
+  <tr><td><b>&nbsp;&nbsp;
+    <%= f.label :address2 %>:</b></td><td height="30">
+    <%= f.text_field :address2 %>
+  </td></tr>
+  <tr><td><span style="color: Red">*</span><b>
+    <%= f.label :city %>:</b></td><td height="30">
+    <%= f.text_field :city %>
+  </td></tr>
+  <tr><td><span style="color: Red">*</span><b>
+    <%= f.label :state %>:</b></td><td height="30">
+    <%= f.text_field :state %>
+  </td></tr>
+  <tr><td><span style="color: Red">*</span><b>
+    <%= f.label :zip %>:</b></td><td height="30">
+    <%= f.text_field :zip %>
+  </td></tr>
+  
+  <tr><td><span style="color: Red">*</span><b>
+    Federal Id:</b></td>
+    <td height="30"><%= f.text_field :federal_id %>
+  </td></tr>
+  <td>&nbsp;</td>
+  
+  <tbody class="tbl" bgcolor="#E5E5E5">
+	<tr dir="rtl">
+  	<td height="40"> <b> Contracts Point of Contact</b></td> <td></td></tr>
+</tbody>
+  
+  <%= f.fields_for :vendor_contact do |vendor_contact_fields| %>
+   <tr><td><span style="color: Red">*</span><b>
+    Poc-Name :</b></td><td height="30">
+    <%= vendor_contact_fields.text_field :poc_name %>
+  </td></tr>
+  <tr><td><span style="color: Red">*</span><b>
+    Poc-Email :</b></td><td height="30">
+    <%= vendor_contact_fields.text_field :poc_email %>
+  </td></tr>
+  <tr><td><b>&nbsp;&nbsp;
+    <%= vendor_contact_fields.label :poc_alternate_email %>:</b></td><td height="30">
+    <%= vendor_contact_fields.text_field :poc_alternate_email %>
+  </td></tr>
+  <tr><td><span style="color: Red">*</span><b>
+    Sign-Authority Name:</b></td><td height="30">
+    <%= vendor_contact_fields.text_field :sub_sign_authority %>
+  </td></tr>
+  <tr><td><span style="color: Red">*</span><b>
+     Sign-Authority Title :</b></td><td height="30">
+    <%= vendor_contact_fields.text_field :sub_sign_authority_title %>
+  </td></tr>
+  
+    <tr><td><span style="color: Red">*</span><b>
+    <%= vendor_contact_fields.label :fax %>:</b></td><td height="30">
+    <%= vendor_contact_fields.text_field :fax %>
+  </td></tr>
+  
+  <tr><td><span style="color: Red">*</span><b>
+    <%= vendor_contact_fields.label :phone %>:</b></td><td height="30">
+    <%= vendor_contact_fields.text_field :phone %>
+  </td></tr>
+  <tr><td><b>&nbsp;&nbsp;
+    <%= vendor_contact_fields.label :phone_extension %>:</b></td><td height="30">
+    <%= vendor_contact_fields.text_field :phone_extension %>
+  </td></tr>
+
+  <% end %>
+  <tr> <td></td>
+<td><%= f.submit "Submit", :class=>"button_small" %>&nbsp;
+<input type="button" value="Back" class="button_small" onclick="javascript:funback('<%= new_placement_fulfilment_path(:vid=>params[:vid]) %>')" ></input>
+</td></tr>   
+</table>
+</div>
+
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+<% end %>
+</body>
+</html>
+
+

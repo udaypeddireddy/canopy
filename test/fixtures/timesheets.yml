@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date_worked: 2012-06-21
+  document_name: MyString
+  user_id: MyString
+  hours_worked: MyString
+  project_id: 1
+  proof_path: MyString
+  proof_uploaded: MyString
+  status: false
+
+two:
+  date_worked: 2012-06-21
+  document_name: MyString
+  user_id: MyString
+  hours_worked: MyString
+  project_id: 1
+  proof_path: MyString
+  proof_uploaded: MyString
+  status: false

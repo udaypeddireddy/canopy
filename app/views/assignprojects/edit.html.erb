@@ -1,0 +1,244 @@
+<%= form_tag :action=>"create" do %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+        
+        
+       
+
+
+ <style>
+	
+table.grid {
+	border-collapse:collapse;
+}
+table.grid th {
+	background-color: #F4A460;
+	font-weight: bolder;
+	
+}
+table.grid td {
+	border:1px solid black;
+background-color: #F5DEB3;	
+	
+}
+
+</style>
+        
+
+
+
+
+   </head>
+<body>
+    <form id="form1" >
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+            <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+                
+                        <img src="../../assets/logo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                             
+                             <%= render :partial=>"partials/link" %>
+                          
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+     <!--       <div class="headingbg_img">
+                <div class="headingbg_padding">
+                    &nbsp;</div>
+                <div id="TransBg">
+                    &nbsp;</div>
+                <div class="lineheight">
+                    &nbsp;</div>
+                <div class="menu_space">
+                    &nbsp;</div>
+               </div>       -->
+               
+               
+            <div class="innercontentTS">
+           
+    
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>Update Project
+                        </b></td><td align="center">
+                   <%= render :partial=>'partials/welcome' %>
+                </td>
+                      </tr>
+                      
+
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td>
+                    	
+
+
+</br>
+<div align="center">
+<p id="notice"><%= notice %></p>
+	
+<table>
+<fieldset>
+<tr>
+<td><b>Consultant:</b></td> <td><%= select_tag :id, options_for_select(  @user.collect{|x| [x.firstname,x.id]},{:selected=>@edit_project.user_id}) %></td>
+</tr>
+<tr>
+<td><b>Project:</b></td> <td><%= select_tag :pro_id, options_for_select(@project.collect{|p| [p.projectname,p.pro_id]},{:selected=>@edit_project.project_id}) %></td>
+</tr>
+</table>
+<%= submit_tag "Update", :class=>"button_small", :confirm=>"Are you sure" %>
+
+<% end %>
+
+</fieldset>
+</div>
+
+<br />
+<br />
+<div align="center">
+	
+	
+	<table border="1" bordercolor="black" class="grid">
+		
+		<tr>
+		<th>Consultant</th>
+		<th>Email</th>
+		<th>Project Name</th>
+	
+		<th>Action</th>
+		</tr>
+		
+		<% @personal.each do |personal| %>
+		<tr>
+			<td><%= personal.firstname %></td>
+			<td><%= personal.email %></td>
+			<td><%= personal.project_name %></td>
+
+			<td><%= link_to "edit", edit_assignproject_path(personal) %></td>
+			
+		</tr>
+		
+		
+		<% end %>
+	</table>
+	
+	
+	
+	
+</div>
+
+
+                    	
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+    </form>
+</body>
+</html>
+
+
+
+
+

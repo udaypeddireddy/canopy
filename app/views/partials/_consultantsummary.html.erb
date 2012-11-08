@@ -1,0 +1,156 @@
+<% if consultant %>
+<div align="center">
+<% if project_assigned.present? %>	
+	
+<b style="color: #C35817">Timesheets</b>	
+
+<% unless @timesheets.blank? %>
+<table>
+<tr>
+	<th><b>Start-Date</b>&nbsp;&nbsp;</th>
+	<th><b>End-Date</b>&nbsp;&nbsp;</th>
+	<th><b>Total-Hours</b>&nbsp;&nbsp;</th>
+	<th><b>Status</b>&nbsp;&nbsp;</th>
+</tr>	
+<% @timesheets.each do |timesheet| %>
+<%sum=0.0%>
+<% @timesheet_hours = TimesheetDay.where(:timesheet_id=>timesheet) %>
+<% @timesheet_hours.each do |timesheet_hours| %>
+<% if timesheet_hours.regular_time!=nil || timesheet_hours.over_time!=nil %>
+<%sum=sum+timesheet_hours.regular_time+timesheet_hours.over_time %>
+<% end %><% end %>
+
+<tr>
+<td><%= timesheet.start_date %></td>
+<td>&nbsp;&nbsp; <%= timesheet.end_date %></td>
+<td>&nbsp;&nbsp; &nbsp;&nbsp; <%= sum %></td>
+<% if timesheet.status==true%>
+<td><b>Approved</b></td>
+<% else %>
+<% if timesheet.status==false %>
+<td><b>Rejected</b></td>
+<% else %>
+<td><b>Waiting For Approval </b></td>
+<% end %><% end %><% end %>
+</tr>
+</table>
+
+<% else %>
+</br></br></br>
+<p>
+<b style="color: red">You are not submitted a Timesheet Report yet </b>
+</p>
+</br></br>
+<% end %>
+</div> <br /><br />
+
+
+
+
+<div align="center">
+<b style="color: #C35817">Requests</b>
+<% unless @user_requests.blank? %>
+
+<table>
+<tr>
+<th><b>Requested For</b>&nbsp;&nbsp;</th>
+<th><b>Status</b></th>
+</tr>
+<% @user_requests.each do |user_requests| %>
+<tr>
+<td><%= user_requests.request_for  %></td>
+
+<td><% if user_requests.is_approved==true %>
+<b>Approved</b>
+<% else %>
+<% if user_requests.is_approved==false %>
+<b>rejected</b>
+<% else %>
+<b>Waiting for Approval</b></td>
+</tr>
+<% end %>
+<% end %>
+<% end %>
+</br>
+<tr align="center">
+<td><b>Total Approved:</b>&nbsp;<%= current_user.user_requests.count(:conditions=> "is_approved = true") %>&nbsp;&nbsp;
+<b>Total Rejected:</b>&nbsp;<%= current_user.user_requests.count(:conditions=> "is_approved = false") %>&nbsp;&nbsp;
+<b>Total Waiting:</b>&nbsp;<%= current_user.user_requests.where(:is_approved => nil).count %>&nbsp;&nbsp;</td>
+</tr>
+</table>
+<% else %>
+</br></br></br>
+<p>
+<b style="color: red">No requests submitted  yet </b>	
+</p>
+</br></br></br>
+<% end %>
+</div>
+<br /><br />
+<% else %>
+ <br /><br /> <br /><br />
+<font color= "red" > <b>You are not authorized to submit timesheet unless you are assigned to a project</b></font>
+ <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
+<% end %>
+
+<% end %>
+ 
+<% if recruiter %>
+<div align="center">
+<b style="color: #C35817">Requests</b>
+<% unless @user_requests.blank? %>
+
+<table>
+<tr>
+<th><b>Requested For</b>&nbsp;&nbsp;</th>
+<th><b>Status</b></th>
+</tr>
+<% @user_requests.each do |user_requests| %>
+<tr>
+<td><%= user_requests.request_for  %></td>
+<td><% if user_requests.is_approved==true %>
+<b>Approved</b>
+<% else %>
+<% if user_requests.is_approved==false %>
+<b>rejected</b>
+<% else %>
+<b>Waiting for Approval</b></td>
+</tr>
+<% end %>
+<% end %>
+<% end %>
+</br>
+<tr align="center">
+<td><b>Total Approved:</b>&nbsp;<%= current_user.user_requests.count(:conditions=> "is_approved = true") %>&nbsp;&nbsp;
+<b>Total Rejected:</b>&nbsp;<%= current_user.user_requests.count(:conditions=> "is_approved = false") %>&nbsp;&nbsp;
+<b>Total Waiting:</b>&nbsp;<%= current_user.user_requests.where(:is_approved => nil).count %>&nbsp;&nbsp;</td>
+</tr>
+</table>
+<% else %>
+</br></br></br>
+<p>
+<b style="color: red">You are not submitted a Request yet </b>	
+</br></br>
+</p>
+<% end %>
+</div>
+<br /><br />
+<div align="center">
+<b style="color: #C35817"> Weekly-Status Reports</b>
+<% unless @status_reports.blank? %>
+<table>
+<% @status_reports.each do |status_report| %>
+<tr>
+<td>Submitted Weekly Status Report <%= time_ago_in_words status_report.created_at %> ago..<br /></td>
+<%  end %>
+</tr>
+</table>	
+<% else %>
+</br></br></br>
+<p>
+<b style="color: red">You are not submitted a Weekly-Status Report yet </b>	
+</p>
+</br></br>
+<% end %>
+</div>
+<% end %>

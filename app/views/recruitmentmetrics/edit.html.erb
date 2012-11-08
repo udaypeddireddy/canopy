@@ -1,0 +1,11 @@
+<%= form_for @rec_metric, :url=>{:action=>'update'} do |f| %>
+<table><tr>
+ <label for="Placement Status">Placement Status</label></tr>
+ <tr><td><label for="Accept">Accept</label>
+  <%= f.radio_button :placement_success , true%></td>
+ <td> <label for="Reject">Reject</label>
+   <%= f.radio_button :placement_success, false%></td></tr>
+ <tr><td> <div class="actions">
+    <%= f.submit %>
+  </div></td></tr>
+<% end %>

@@ -1,0 +1,116 @@
+﻿html{color:#000;background-color: #F0EBD1;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}
+del,ins{text-decoration:none;}
+li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;font-variant:normal;}
+sup{vertical-align:baseline;}
+sub{vertical-align:baseline;}
+legend{color:#000;}
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
+input,button,textarea,select{*font-size:100%;font-family:"Trebuchet MS","Segoe UI",Candara,"Bitstream Vera Sans","DejaVu Sans",Verdana,sans-serif!important;}
+
+
+.text
+{
+	text-transform:capitalize;
+}
+
+
+table.grid {
+	
+	column-gap: normal;
+}
+table.grid th {
+
+	background-color: #F4A460;
+	font-weight: bolder;
+	text-align: center;
+	border:1px solid black;
+}
+table.grid td {
+
+    background-color: #F5DEB3;	
+	font-weight: bolder;	
+	width: 15%;
+	text-align: center;
+	border:1px solid black;
+								
+}
+
+ 
+   
+   table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+    width: 530px;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+ 
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+
+table.tbl {
+font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.tbl th {
+	border-width: 1px;
+	
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.tbl td {
+	border-width: 1px;
+
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+
+table.grid {
+	border-collapse:collapse;
+	width: 99%;
+}
+table.grid th {
+	background-color: #F4A460;
+	font-weight: bolder;
+	text-align: center;
+   }
+
+table.grid td {
+border:1px solid black;
+background-color: #F5DEB3;	
+font-weight: bolder;
+	text-align: center;
+}

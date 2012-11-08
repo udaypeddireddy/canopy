@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+<%= stylesheet_link_tag "menustyles.css" %>
+      
+        <%= stylesheet_link_tag "Styles.css" %>
+        <%= stylesheet_link_tag "reset-min.css" %>  
+        
+        
+<script type="application/javascript">
+	
+function back(link)
+{
+	window.location.href =link;
+}
+</script>    
+        
+        
+   </head>
+<body>
+    <form id="form1" >
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+            <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+                
+                        <img src="../../assets/logo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                            <%= render :partial=>"partials/link" %>
+                           
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+     <!--       <div class="headingbg_img">
+                <div class="headingbg_padding">
+                    &nbsp;</div>
+                <div id="TransBg">
+                    &nbsp;</div>
+                <div class="lineheight">
+                    &nbsp;</div>
+                <div class="menu_space">
+                    &nbsp;</div>
+               </div>       -->
+               
+               
+            <div class="innercontentTS">
+           
+    
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>Clients
+                        </b></td><td align="center">
+                  <%= render :partial=>'partials/welcome' %>
+                </td>
+                      </tr>
+                      
+
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td>
+                    	
+                    	
+                    
+                    <div align="center">
+<b>	Vendor :<font color="#FF6600" class="text"><%= @vendor.name %></font></b>
+
+
+<p align="right">
+<% unless @clients.blank? %>
+<table border="1" class="grid">
+	<tr>
+		<th>ClientName</th>
+			<th>Email</th>
+		
+		<th>Phone</th>
+			<th>Address1</th>
+			
+		<th>Address2</th>
+			
+			<th align="center">Action</th>	
+		
+	</tr>
+	<tr>
+		
+		
+	
+	
+		<p style="color: green"><b><%= notice %></b></p>
+				<% @clients.each do |client|  %>
+		
+<td><%= client.name  %></td>
+<td><%= client.email  %></td>
+<td><%= client.phone %></td>
+<td><%= client.address1  %></td>
+<td><%= client.address2  %></td>
+<td>
+	
+<%= link_to 'Add-Project', client_path(client) %>||
+
+
+
+
+</tr>
+<% end  %>
+<% else %>
+
+<p style="color: red"> <b>NO Client Associated With This Vendor  </b></p>
+
+
+	<% end %>
+</table>
+
+<br>
+<br>
+<br>
+</div>
+
+ <div align="center">	   
+    <table cellspacing="50" cellpadding="40">
+    	<tr><td>
+	<button class="button_med"><%= link_to 'Add Client', new_vendor_client_path(@vendor) %></button>
+	</td>
+	<td> &nbsp;&nbsp;&nbsp;</td>
+<td>	<button class="button_med"><%= link_to 'Add Consultant', newconsultant_path %></button>
+		
+	</td>
+		<td> &nbsp;&nbsp;&nbsp;</td>
+		<td> 
+		<input type="button" value="Back" class="button_small" onclick="back('<%= vendors_path %>')" ></input>	</td>	
+	</tr>
+
+</table>	
+
+</div>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+    </form>
+</body>
+</html>
+
+

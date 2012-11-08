@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Poc name:</b>
+  <%= @vendor_contact.poc_name %>
+</p>
+
+<p>
+  <b>Poc email:</b>
+  <%= @vendor_contact.poc_email %>
+</p>
+
+<p>
+  <b>Poc alternate email:</b>
+  <%= @vendor_contact.poc_alternate_email %>
+</p>
+
+<p>
+  <b>Sub sign authority:</b>
+  <%= @vendor_contact.sub_sign_authority %>
+</p>
+
+<p>
+  <b>Sub sign authority title:</b>
+  <%= @vendor_contact.sub_sign_authority_title %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @vendor_contact.vendor_id %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @vendor_contact.phone %>
+</p>
+
+<p>
+  <b>Phone extension:</b>
+  <%= @vendor_contact.phone_extension %>
+</p>
+
+
+<%= link_to 'Edit', edit_vendor_vendor_contact_path(@vendor,@vendor_contact) %> |
+<%= link_to 'Back', vendor_vendor_contacts_path(@vendor) %>

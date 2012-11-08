@@ -1,0 +1,44 @@
+﻿#topnav{clear:both;}
+#dropdownmenu{margin:0;padding:0px 0 0 0 0;}
+#dropdownmenu li{float:left;list-style:none;font-size:13px;}
+#dropdownmenu li a{display:block;padding:0px 12px;text-decoration:none;background:transparent url('top-nav-green-bar.jpg') no-repeat top left;color:#261c02;white-space:nowrap;}
+#dropdownmenu li a.current{display:block;padding:0px 12px;text-decoration:none;background:transparent url('top-nav-blue-bar.jpg') no-repeat top left;white-space:nowrap;color:#00728f;}
+#dropdownmenu li a.current:hover{color:#00728f;}
+#dropdownmenu li a:hover{color:#F36B1D;}
+#dropdownmenu li ul{z-index:100;}
+#dropdownmenu li ul{margin-top:0;padding:0;position:absolute;visibility:hidden;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";filter:alpha(opacity=90);-moz-opacity:.90;-khtml-opacity:.90;opacity:.90;}
+#dropdownmenu li ul.industries{background:#eee url('menutopbg-industries.gif') repeat-x top left;}
+#dropdownmenu li ul.services{background:#eee url('menutopbg-services.gif') repeat-x top left;}
+#dropdownmenu li ul.approach{background:#eee url('menutopbg-approach.gif') repeat-x top left;}
+#dropdownmenu li ul.insights{background:#eee url('menutopbg-insights.gif') repeat-x top left;}
+#dropdownmenu li ul.company{background:#eee url('menutopbg-company.gif') repeat-x top left;}
+#dropdownmenu li ul li{float:none;display:inline;}
+#dropdownmenu li ul li a{width:170px;color:#261c02;border-bottom:#c9c6c0 1px dotted;margin:0 13px 0 13px;line-height:15px;padding-left:0;background:none;white-space:normal; font-size:12px;}
+#dropdownmenu li ul li.last a{border-bottom:0;background:none;}
+#dropdownmenu li ul li a:hover{color:#F36B1D;}
+#dropdownmenu li ul.width250 li a{width:250px;color:#261c02;border-bottom:1px dotted #c9c6c0;margin:0 13px 0 13px;padding-top:5px;padding-bottom:5px;line-height:15px;padding-left:0;background:none;white-space:normal;}
+#dropdownmenu li ul.width70 li a{width:70px;color:#261c02;border-bottom:1px dotted #c9c6c0;margin:0 13px 0 13px;line-height:15px;padding-left:0;background:none;white-space:normal;}
+#dropdownmenu li ul.width250 li.last a,#dropdownmenu li ul.width70 li.last a{border-bottom:0;background:none;}
+#dropdownmenu li ul.width250 li a:hover,#dropdownmenu li ul.width70 li a:hover{color:#F36B1D;}
+
+#dropdownmenu1{margin:0;padding:0px 0 0 0 0;}
+#dropdownmenu1 li{float:left;list-style:none;font-size:13px;}
+#dropdownmenu1 li a{display:block;padding:0px 12px;text-decoration:none;background:transparent url('top-nav-green-bar.jpg') no-repeat top left;color:#261c02;white-space:nowrap;}
+#dropdownmenu1 li a.current{display:block;padding:0px 12px;text-decoration:none;background:transparent url('top-nav-blue-bar.jpg') no-repeat top left;white-space:nowrap;color:#00728f;}
+#dropdownmenu1 li a.current:hover{color:#00728f;}
+#dropdownmenu1 li a:hover{color:#F36B1D;}
+#dropdownmenu1 li ul{z-index:100;}
+#dropdownmenu1 li ul{margin-top:0;padding:0;position:absolute;visibility:hidden;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";filter:alpha(opacity=90);-moz-opacity:.90;-khtml-opacity:.90;opacity:.90;}
+#dropdownmenu1 li ul.industries{background:#eee url('menutopbg-industries.gif') repeat-x top left;}
+#dropdownmenu1 li ul.services{background:#eee url('menutopbg-services.gif') repeat-x top left;}
+#dropdownmenu1 li ul.approach{background:#eee url('menutopbg-approach.gif') repeat-x top left;}
+#dropdownmenu1 li ul.insights{background:#eee url('menutopbg-insights.gif') repeat-x top left;}
+#dropdownmenu1 li ul.company{background:#eee url('menutopbg-company.gif') repeat-x top left;}
+#dropdownmenu1 li ul li{float:none;display:inline;}
+#dropdownmenu1 li ul li a{width:170px;color:#261c02;border-bottom:#c9c6c0 1px dotted;margin:0 13px 0 13px;line-height:15px;padding-left:0;background:none;white-space:normal; font-size:12px;}
+#dropdownmenu1 li ul li.last a{border-bottom:0;background:none;}
+#dropdownmenu1 li ul li a:hover{color:#F36B1D;}
+#dropdownmenu1 li ul.width250 li a{width:250px;color:#261c02;border-bottom:1px dotted #c9c6c0;margin:0 13px 0 13px;padding-top:5px;padding-bottom:5px;line-height:15px;padding-left:0;background:none;white-space:normal;}
+#dropdownmenu1 li ul.width70 li a{width:70px;color:#261c02;border-bottom:1px dotted #c9c6c0;margin:0 13px 0 13px;line-height:15px;padding-left:0;background:none;white-space:normal;}
+#dropdownmenu1 li ul.width250 li.last a,#dropdownmenu li ul.width70 li.last a{border-bottom:0;background:none;}
+#dropdownmenu1 li ul.width250 li a:hover,#dropdownmenu li ul.width70 li a:hover{color:#F36B1D;}

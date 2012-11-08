@@ -1,0 +1,454 @@
+<% if is_admin %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<meta http-equiv="refresh" content="100" /> -->	
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+
+        <%= stylesheet_link_tag "menustyles.css" %>
+        <%= stylesheet_link_tag "Styles.css" %>
+        <%= stylesheet_link_tag "reset-min.css" %>
+        
+<script type="text/javascript">
+     	
+     	
+     	function select()
+     	
+     	{
+     	if(document.getElementById("timesheet_my_file").value=="")
+        		
+        		{
+        			
+        			alert("Please Upload Proof Document");
+        			document.getElementById("timesheet_my_file").focus();
+        			return false;
+        		}
+        		else
+        		return true;
+        		 
+        	}
+     	
+     </script>
+     
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script>
+ 
+
+  $(document).ready(function() {
+        $("#start_datepicker").datepicker({dateFormat: 'dd-mm-yy',beforeShowDay: NotBeforeToday});
+    $("#end_datepicker").datepicker({dateFormat: 'dd-mm-yy',beforeShowDay: NotBeforeToday});
+
+  });
+  function NotBeforeToday(date)
+{
+    var now = new Date();//this gets the current date and time
+    if (date.getFullYear() == now.getFullYear() && date.getMonth() == now.getMonth() && date.getDate() < now.getDate())
+        return [true];
+    if (date.getFullYear() <= now.getFullYear() && date.getMonth() < now.getMonth())
+       return [true];
+     if (date.getFullYear() < now.getFullYear())
+       return [true];
+    return [false];
+}
+  function getMonth(value) {
+    var month = value.getMonth();
+    return month < 10 ? '0' + month : month; // ('' + month) for string result
+} 
+  function formatDate(value)
+{
+	var day= value.getDate();
+var month = value.getMonth()+1;
+var year = value.getFullYear();
+if(month<10)
+{
+	month = "0"+month;
+}
+date= day + '/'+ month+ '/'+ year;
+
+return date;
+//return value.getMonth()+1 + "/" + value.getDate() + "/" + value.getFullYear();
+}
+
+
+
+  function AddDays(thisDate,days) {
+
+            //var thisDate = new Date();
+
+            thisDate.setDate(thisDate.getDate() + days);
+
+            return thisDate;
+
+        }
+   function calculate() {
+   	document.getElementById("idfileupload").style.display='block';
+   	document.getElementById("tbltimesheet").style.display='block';
+    var start = $('#start_datepicker').datepicker('getDate');
+    var end = $('#end_datepicker').datepicker('getDate');
+   
+   if(start==null)
+   {
+   	
+   	document.getElementById("idfileupload").style.visibility='hidden';
+   	document.getElementById("tbltimesheet").style.visibility='hidden';
+   	alert("please select Startdate");
+   document.getElementById("start_datepicker").focus();
+   	return false;
+   }
+   else if(end==null)
+   {
+   	
+   	document.getElementById("idfileupload").style.visibility='hidden';
+   	document.getElementById("tbltimesheet").style.visibility='hidden';
+   	alert("please select enddate");
+   	document.getElementById("end_datepicker").focus();
+   	return false;
+   }
+    
+    
+   
+    document.getElementById("hdnenddate").value=end;
+//    alert(document.getElementById("hdnenddate").value);
+    var startdt = new Date(start);
+    var enddt = new Date(end);
+   // alert(formatDate(startdt));
+    //alert(enddt.getDate());
+    //alert(AddDays(startdt,8));
+    var days = (end - start) / 1000 / 60 / 60 / 24;
+   // alert(days);
+    var table = document.getElementById("tbltimesheet");
+    var rowCount,row,j=0,k=0,rowCountHeader,rowHeader;
+    for(var i=table.rows.length; i>0; i--) {
+                    table.deleteRow(i-1);
+              }
+   // rowCount = table.rows.length;
+    // row = table.insertRow(rowCount);
+    document.getElementById('days').value=days;
+    var scount=0;
+    var weekday=new Array(7);
+weekday[0]="Sunday";
+weekday[1]="Monday";
+weekday[2]="Tuesday";
+weekday[3]="Wednesday";
+weekday[4]="Thursday";
+weekday[5]="Friday";
+weekday[6]="Saturday";
+document.getElementById('hdndayscount').value=null;
+    for(var index=0;index<=days;index++)
+    {
+    var n = startdt.getDay();    	
+    if(n==0 || scount==0)//if(index%7==0)
+    {	
+    	if(scount==1)
+    	{
+    		if(document.getElementById('hdndayscount').value.length==0)
+              document.getElementById('hdndayscount').value=j;
+            else
+            document.getElementById('hdndayscount').value= document.getElementById('hdndayscount').value+","+j;     		
+    	}
+    	j=0;k++;
+     rowCountHeader = table.rows.length;
+     rowHeader = table.insertRow(rowCountHeader);
+     rowCount = table.rows.length;
+     row = table.insertRow(rowCount);
+    }
+    scount=1;
+    var Headercell = rowHeader.insertCell(j);
+    Headercell.innerHTML=formatDate(startdt)+"</br>"+weekday[n];
+    var Headerelement = document.createElement("input");
+    Headerelement.type = "hidden";
+    Headerelement.id = "hdn"+k+j;
+    Headerelement.name = "hdn"+k+j;
+    Headerelement.value = formatDate(startdt);
+    Headercell.appendChild(Headerelement);
+    startdt=AddDays(startdt,1);
+    var cell1 = row.insertCell(j);
+   
+    var element1 = document.createElement("input");
+    element1.type = "text";
+    element1.id = "Regulartime_worked"+k+j;
+    element1.name = "Regulartime_worked"+k+j;
+    //element1.value = "hours_worked"+k+j;
+    
+    var element2 = document.createElement("input");
+    element2.type = "text";
+    element2.id = "Overtime_worked"+k+j;
+    element2.name = "Overtime_worked"+k+j;
+    
+  /* if(document.getElementById('time').value=="Regular")
+   {
+    if(n==0||n==6)
+    {
+    	element1.readOnly = true;
+    	element1.value = "0.00";
+    }
+ 
+   }
+   */
+   // element1.value = "0.00";
+   var textnode1=document.createTextNode('R:');
+    var textnode2=document.createTextNode('O:');
+  
+     cell1.appendChild(textnode1);
+    cell1.appendChild(element1);
+     cell1.innerHTML+="<br>";//+cell1.appendChild(element1);
+     cell1.appendChild(textnode2);
+    cell1.appendChild(element2);
+    j++;
+    document.getElementById('hdnweeks').value=k;
+    }
+    if(document.getElementById('hdndayscount').value.length==0)
+              document.getElementById('hdndayscount').value=j;
+            else
+            document.getElementById('hdndayscount').value= document.getElementById('hdndayscount').value+","+j;   
+            
+  //  alert(document.getElementById('hdndayscount').value);
+    return false;
+}
+
+	function Approve()
+	{
+		var flag=false;
+var x=document.getElementById("frm1");
+for (var i=0;i<x.length;i++)
+  {
+    if(x.elements[i].type=="checkbox")
+    {
+    	if(x.elements[i].checked)
+    	 flag=true;
+    	else
+    	flag=flag || false;
+    }
+  }
+  if(!flag)
+  {
+  	alert("Please select a atleast one checkbox");
+  	return false;
+  }
+  else
+	return true;
+}
+</script>        
+        
+        
+   </head>
+<body>
+    <%= form_for :timesheet, :url=>{:action=>'update_multiple'},:html=>{:id=>"frm1", :onsubmit=>"return Approve();"} do |f| %>
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+            <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+                
+                        <img src="../../assets/logo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                             <%= render :partial=>"partials/link" %>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            
+               
+            <div class="innercontentTS">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+                        </b></td><td align="center">
+        
+<%= render :partial=>'partials/welcome' %>
+                 
+                </td>
+                      </tr>
+                      
+
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td>
+
+<!-- controller code -->                    	
+
+<div align="center"> 
+<br />
+
+<p style="color: green"><b><%= notice %></b></p>
+
+<% unless @timesheets.blank? %>
+
+<table border="1" class="grid">
+	<tr>
+	    <th>Select</th>
+	    <th>User</th>
+		<th>Start-Date</th>
+		<th>End-Date</th>
+		<th>Proof Document</th>
+		<th>Status</th>
+		<th>Action</th>
+   </tr>		
+	
+
+<tr>
+<% @timesheets.each do |timesheet|  %>
+
+
+<% if timesheet.status ==false || timesheet.status ==nil %>
+<td><%= check_box_tag "timesheet_ids[]", timesheet.id %></td>
+
+<% else %>
+<td></td>
+<% end%>
+
+
+<td ><font class="text"><%= timesheet_user_name(timesheet.user) %></font></td>
+<td><%= Date.strptime(timesheet.start_date.to_s,"%Y-%m-%d").strftime("%m-%d-%Y") %></td>
+<td><%= Date.strptime(timesheet.end_date.to_s,"%Y-%m-%d").strftime("%m-%d-%Y") %></td>
+<td><%= link_to(File.basename(timesheet.proof_path), :action=>'download_timesheet',:controller=>'timesheets',:id=>timesheet.id) %>
+</td>
+<td>
+<% if timesheet.status ==true %>
+			<%= "Accepted" %>
+			<% else if timesheet.status ==false %>
+			<%= "Rejected" %>
+			<% else if %>
+			<%= "Waiting for Approval" %>
+			<% end %>
+			<% end %>
+			<% end %>
+
+</td>
+<td><%= link_to "Show", timesheet_timesheet_days_path(timesheet) %></td> 
+</tr>
+
+<% end  %>
+</table>
+
+
+<table>
+<tr>
+<td>
+<%= submit_tag "Approve", :name=>"approve", :class=>"button_small" %> |  | 
+<%= submit_tag "Reject", :name=>"reject",:class=>"button_small" %>
+</td></tr>
+</table>
+
+<% else %>
+
+<p><b style="color: red">No Timesheet Reports Found</b></p>
+
+<% end %>
+
+</div>
+
+
+                    	
+
+
+
+
+</td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+    <% end %>
+</body>
+</html>
+
+
+
+<% else %>
+
+<%=render :partial=>"consultant" %>
+
+<% end %>

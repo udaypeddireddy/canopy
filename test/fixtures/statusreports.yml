@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  consultant_name: MyString
+  technology: MyString
+  consultant_source: MyString
+  source_requirement: MyString
+  date: 2012-07-11
+  vendor: MyString
+  vendor_poc: MyString
+  vendor_email: MyString
+  vendor_tel: MyString
+  client: MyString
+  status: MyString
+
+two:
+  consultant_name: MyString
+  technology: MyString
+  consultant_source: MyString
+  source_requirement: MyString
+  date: 2012-07-11
+  vendor: MyString
+  vendor_poc: MyString
+  vendor_email: MyString
+  vendor_tel: MyString
+  client: MyString
+  status: MyString

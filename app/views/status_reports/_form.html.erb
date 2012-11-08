@@ -1,0 +1,61 @@
+<%= form_for(@statusreport) do |f| %>
+  <% if @statusreport.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@statusreport.errors.count, "error") %> prohibited this statusreport from being saved:</h2>
+
+      <ul>
+      <% @statusreport.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :consultant_name %><br />
+    <%= f.text_field :consultant_name %>
+  </div>
+  <div class="field">
+    <%= f.label :technology %><br />
+    <%= f.text_field :technology %>
+  </div>
+  <div class="field">
+    <%= f.label :source_consultant %><br />
+    <%= f.text_field :source_consultant %>
+  </div>
+  <div class="field">
+    <%= f.label :source_requirement %><br />
+    <%= f.text_field :source_requirement %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor %><br />
+    <%= f.text_field :vendor %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_poc %><br />
+    <%= f.text_field :vendor_poc %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_email %><br />
+    <%= f.text_field :vendor_email %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_phone %><br />
+    <%= f.text_field :vendor_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :client %><br />
+    <%= f.text_field :client %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

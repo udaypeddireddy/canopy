@@ -1,0 +1,19 @@
+<% @timesheets.each do |timesheet| %>
+	<h3><%= link_to  timesheet.user.firstname %></h3>
+	<p><%= time_ago_in_words timesheet.created_at %></p>
+	
+	<% end %>
+
+
+
+
+<div align="center">
+
+<% unless @timesheets.blank?%>
+  <ul class='list' last="<%=@timesheets.to_a.last.created_at%>">
+    <%=render :partial => "latest", :collection => @timesheets%>
+    <div id="infinite-scroll"></div>
+  </ul>
+<% end %>
+
+</div>

@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+
+        <%= stylesheet_link_tag "menustyles.css" %>
+        <%= stylesheet_link_tag "Styles.css" %>
+        <%= stylesheet_link_tag "reset-min.css" %>
+
+
+<script type="application/javascript">
+	
+function back(link)
+{
+	window.location.href =link;
+}
+</script>
+
+<style>
+.tbl
+{
+	border: solid 2px;
+}
+</style>
+
+        
+   </head>
+<body>
+<%= form_for @profile, :url=>{:action=>'update'} do |f| %>
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+              <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="../../../../assets/header-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="../../../../assets/header-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+               
+                        <img src="../../../../assets/logo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                             <%= render :partial=>"partials/link" %>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            
+
+               
+            <div class="innercontentTS">
+           
+    
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="../../../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>Personal-Profile
+                        </b></td><td align="center">
+                 <%= render :partial=>'partials/welcome' %>
+                </td>
+                      </tr>
+                      
+
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="../../../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td>
+
+             
+<div align="center">
+
+<p id="notice"><%= notice %></p>
+<table>
+	
+<tbody class="tbl" bgcolor="#E5E5E5" >
+	<tr dir="rtl">
+  	<td height="40"> <b> Personal Information</b></td> <td></td></tr>
+</tbody>
+<tr><td><b>
+    <%= f.label :firstname %>:</b></td>
+   <td height="30"> <%= f.text_field :firstname  %>
+  </td></tr>
+  
+  <tr><td><b>
+    <%= f.label :lastname %>:</b></td><td height="30">
+    <%= f.text_field :lastname %>
+  </td></tr>
+  <tr><td><b>
+    Date Of Birth :</b></td><td height="30">
+    <%= f.date_select :dob %>
+  </td></tr>
+  
+  
+   <tr><td><b>
+    <%= f.label :visa_type %>:</b></td><td height="30">
+    <%= f.text_field :visa_type %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :expiry_date %>:</b></td><td height="30">
+    <%= f.date_select :expiry_date %>
+  </td></tr>
+
+  <tr><td><b>
+    <%= f.label :technology %>:</b></td><td height="30">
+    <%= f.text_field :technology %>
+  </td></tr>
+  
+  <tbody class="tbl" bgcolor="#E5E5E5">
+  	<tr dir="rtl">
+  	<td height="40"> <b>Contact _Information</b></td> <td></td>
+  	
+  	</tr>
+  </tbody>
+  
+   <tr><td><b>
+    <%= f.label :phone_work %>:</b></td><td height="30">
+    <%= f.text_field :phone_work %>
+  </td></tr>
+  
+  <tr><td><b>
+  <%= f.label :mobile %>:</b></td><td height="30">
+    <%= f.text_field :mobile %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :email %>:</b></td><td height="30">
+    <%= f.text_field :email %>
+  </td></tr>
+  
+  <tbody class="tbl" bgcolor="#E5E5E5" >
+  	<tr dir="rtl">
+  	<td height="40"><b>Address</b></td><td></td></tr>
+</tbody>
+  
+   <tr><td><b>
+    <%= f.label :address1 %>:</b></td><td height="30">
+    <%= f.text_field :address1 %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :address2 %>:</b></td><td height="30">
+    <%= f.text_field :address2 %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :city %>:</b></td><td height="30">
+    <%= f.text_field :city %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :state %>:</b></td><td height="30">
+    <%= f.text_field :state %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :zip %>:</b></td><td height="30">
+    <%= f.text_field :zip %>
+  </td></tr>
+<tr><td></td><td >
+<%= f.submit 'Update',:class=>"button_small" %>
+<input type="button" value="Back" class="button_small" onclick="back('<%= user_personal_profiles_path(@user) %>')" ></input> 
+ </td> </tr>
+
+</table>
+</div>
+
+
+
+ </td>
+</tr>
+<tr>
+<td><img src="../../../../assets/body_bot1.gif" height="10" width="978"></td>
+ </tr>
+ </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                 <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="../../../../assets/bottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="../../../../assets/bottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+  <% end %>
+</body>
+</html>

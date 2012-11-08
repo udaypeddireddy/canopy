@@ -1,0 +1,39 @@
+<%= form_for @profile, :url=>{:action=>'create'} do |f| %>
+
+
+<% if @profile.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @profile.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+    <div class="field">
+   
+    <%= f.hidden_field :user_id,:value=>session[:user_id] %>
+  </div>
+<div class="field">
+    <%= f.label :user_type %><br />
+    <%= f.text_field :user_type %>
+  </div>
+  
+
+  <div class="field">
+    <%= f.label :biling_type %><br />
+    <%= f.text_field :billing_type %>
+  </div>
+     <div class="field">
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
+  </div>
+ <label for="Admin">Admin</label>
+  <%= f.radio_button :is_admin , true%>
+  <label for="Admin">others</label>
+   <%= f.radio_button :is_admin , false%>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

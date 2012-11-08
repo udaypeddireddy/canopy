@@ -1,0 +1,47 @@
+<div align="center">
+<table>
+<tr><td></td><td><b style="color: #C35817"><strong>Timesheets</strong></b></td></tr>
+
+<% @users.each do |user| %>
+<% @user_timesheets = user.timesheets.last(1) %>
+<% @user_timesheets.each do |timesheet| %>
+
+<tr><td><b><%= timesheet.user.firstname.capitalize %>:</b></td><td>&nbsp;&nbsp; Has submitted Timesheet Report <%= time_ago_in_words timesheet.created_at %> ago..<br />
+	</td>
+</tr>
+<% end %>
+<% end %>
+
+<tr><td></td><td><br /><br />
+<b style="color: #C35817"><strong>Requests</strong></b>
+</td></tr>
+
+	
+<% @users.each do |user| %>
+<% @user_requests = user.user_requests.last(1) %>
+<% @user_requests.each do |request| %>
+<tr><td>
+<b><%= request.user.firstname.capitalize %>:</b></td><td>&nbsp;&nbsp;  Has submitted a Request <%= time_ago_in_words request.created_at %> ago..<br />
+</td></tr>
+<% end %>	
+<% end %>
+<br />
+<tr><td></td><td><br /><br />
+<b style="color: #C35817"><strong>Weekly-Status</strong></b>
+</td></tr>
+
+<tr>
+<% @users.each do |user| %>
+<% @status_reports = user.status_reports.last(1) %>
+
+<% @status_reports.each do |status_report| %>
+
+
+<td><b><%= status_report.user.firstname.capitalize %>:</b></td><td>&nbsp;&nbsp;  Has submitted Weekly-Status Report <%= time_ago_in_words status_report.created_at %> ago..<br /></td>
+
+<%  end %><%  end %>
+
+</tr>
+</table>
+<br />
+</div>

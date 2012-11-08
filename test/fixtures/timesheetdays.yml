@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  timesheet_id: 1
+  start_date: 2012-07-23
+  end_date: 2012-07-23
+  hours_worked: 1
+  comments: MyString
+  regular_time: 1
+  over_time: 1
+
+two:
+  timesheet_id: 1
+  start_date: 2012-07-23
+  end_date: 2012-07-23
+  hours_worked: 1
+  comments: MyString
+  regular_time: 1
+  over_time: 1

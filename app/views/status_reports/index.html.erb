@@ -1,0 +1,513 @@
+<% if !is_admin %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+        
+<%= stylesheet_link_tag "menustyles.css" %>
+<%= stylesheet_link_tag "Styles.css" %>
+<%= stylesheet_link_tag "reset-min.css" %>
+
+<script language="javascript">
+ function addRow(tableID) {
+ 
+            var table = document.getElementById(tableID);
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+/*if(document.getElementById('hdncount').va==null)
+{
+            var hdn = document.createElement("input");
+            hdn.type = "hidden";
+            hdn.id='hdn';
+            hdn.value=table.rows.length;
+            table.appendChild(hdn);
+ }
+ else
+ {*/
+ 	document.getElementById('hdncount').value=table.rows.length;
+ //}
+      //      var cell1 = row.insertCell(0);
+ //           var element1 = document.createElement("input");
+ //          element1.type = "checkbox";
+ //           cell1.appendChild(element1);
+ 
+ //           var cell2 = row.insertCell(1);
+ //           cell2.innerHTML = rowCount + 1; 
+ 
+ 
+            var cell1 = row.insertCell(0);
+            var element1 = document.createElement("input");
+            element1.type = "checkbox";
+            cell1.appendChild(element1);
+            
+            
+ 
+ 
+ 
+ 
+            var cell2 = row.insertCell(1);
+            var element2 = document.createElement("input");
+            element2.type = "text";
+            element2.id = "consultant_name"+ (rowCount+1);
+            element2.name = "consultant_name"+(rowCount+1);
+      //      element2.value = "consultant_name"+(rowCount+1);
+            cell2.appendChild(element2);
+            
+            var cell3 = row.insertCell(2);
+            var element3 = document.createElement("input");
+            element3.type = "text";
+            element3.id = "technology"+ (rowCount+1);
+            element3.name = "technology"+(rowCount+1);
+      //      element3.value = "technology"+(rowCount+1);
+            cell3.appendChild(element3);
+            
+            var cell4 = row.insertCell(3);
+            var element4 = document.createElement("input");
+            element4.type = "text";
+            element4.id = "consultant_source"+ (rowCount+1);
+            element4.name = "consultant_source"+(rowCount+1);
+       //     element4.value = "consultant_source"+(rowCount+1);
+             cell4.appendChild(element4);
+            
+            
+            
+            var cell5 = row.insertCell(4);
+            var element5 = document.createElement("input");
+            element5.type = "text";
+            element5.id = "source_requirement"+ (rowCount+1);
+            element5.name = "source_requirement"+(rowCount+1);
+         //   element5.value = "source_requirement"+(rowCount+1);
+            cell5.appendChild(element5);
+            
+            
+            var cell6 = row.insertCell(5);
+            var element6 = document.createElement("input");
+            element6.type = "text";
+            element6.id = "date"+ (rowCount+1);
+            element6.name = "date"+(rowCount+1);
+         //   element6.value = "date"+(rowCount+1)
+            cell6.appendChild(element6);
+            
+            
+            var cell7 = row.insertCell(6);
+            var element7 = document.createElement("input");
+            element7.type = "text";
+            element7.id = "vendor"+ (rowCount+1);
+            element7.name = "vendor"+(rowCount+1);
+         //   element7.value = "vendor"+(rowCount+1);
+            cell7.appendChild(element7);
+            
+            
+            
+            var cell8 = row.insertCell(7);
+            var element8 = document.createElement("input");
+            element8.type = "text";
+            element8.id = "vendor_poc"+ (rowCount+1);
+            element8.name = "vendor_poc"+(rowCount+1);
+       //     element8.value = "vendor_poc"+(rowCount+1);
+            cell8.appendChild(element8);
+            
+            
+            var cell9 = row.insertCell(8);
+            var element9 = document.createElement("input");
+            element9.type = "text";
+            element9.id = "vendor_email"+ (rowCount+1);
+            element9.name = "vendor_email"+(rowCount+1);
+         //   element9.value = "vendor_email"+(rowCount+1);
+            cell9.appendChild(element9);
+            
+            
+            var cell10 = row.insertCell(9);
+            var element10 = document.createElement("input");
+            element10.type = "text";
+            element10.id = "vendor_tel"+ (rowCount+1);
+            element10.name = "vendor_tel"+(rowCount+1);
+         //   element10.value = "vendor_tel"+(rowCount+1);
+            cell10.appendChild(element10);
+            
+            
+            var cell11 = row.insertCell(10);
+            var element11 = document.createElement("input");
+            element11.type = "text";
+            element11.id = "client"+ (rowCount+1);
+            element11.name = "client"+(rowCount+1);
+         //  element4.value = "Empname"+(rowCount+1);
+            cell11.appendChild(element11);
+            
+            var cell12 = row.insertCell(11);
+            var element12 = document.createElement("input");
+            element12.type = "text";
+            element12.id = "status"+ (rowCount+1);
+            element12.name = "status"+(rowCount+1);
+         //  element4.value = "Empname"+(rowCount+1);
+            cell12.appendChild(element12);
+          alert(document.getElementById('hdncount').value);
+        }
+ 
+        function deleteRow(tableID) {
+            try {
+            var table = document.getElementById(tableID);
+            var rowCount = table.rows.length;
+ 
+            for(var i=0; i<rowCount; i++) {
+                var row = table.rows[i];
+                var chkbox = row.cells[0].childNodes[0];
+                if(null != chkbox && true == chkbox.checked) {
+                    table.deleteRow(i);
+                    rowCount--;
+                    i--;
+                }  }
+                
+                if(document.getElementById('hdncount')!=null)
+                 document.getElementById('hdncount').value=table.rows.length;
+            var table = document.getElementById(tableID);
+            var rowCount = table.rows.length;
+   alert(document.getElementById('hdncount').value);
+            for(var i=0; i<rowCount; i++) {
+            	 var row = table.rows[i];
+            	
+            	// var cell2 = row.cells[1];
+                 //cell2.innerHTML =i+1;
+                 //var txt1 = row.cells[2].childNodes[0];
+                 //txt1.id='Empname'+(i+1);
+                 //txt1.name='Empname'+(i+1);
+                 //txt1.value=txt1.id;
+                 
+                 
+            var element2 = row.cells[1].childNodes[0];
+            element2.id = "consultant_name"+ (i+1);
+            element2.name = "consultant_name"+(i+1);
+         //   element2.value = "consultant_name"+(i+1);
+            
+            
+            var element3 = row.cells[2].childNodes[0];
+            element3.id = "technology"+ (i+1);
+            element3.name = "technology"+(i+1);
+          //  element3.value = "technology"+(i+1);
+                        
+            
+            var element4 = row.cells[3].childNodes[0];
+            element4.id = "consultant_source"+ (i+1);
+            element4.name = "consultant_source"+(i+1);
+        //    element4.value = "consultant_source"+(i+1);
+            
+         
+            var element5 = row.cells[4].childNodes[0];
+            element5.id = "source_requirement"+ (i+1);
+            element5.name = "source_requirement"+(i+1);
+         //   element5.value = "source_requirement"+(i+1);
+           
+                        var element6 = row.cells[5].childNodes[0];
+            element6.id = "date"+ (i+1);
+            element6.name = "date"+(i+1);
+         //   element6.value = "date"+(i+1)
+            
+            
+            var element7 = row.cells[6].childNodes[0];
+            element7.id = "vendor"+ (i+1);
+            element7.name = "vendor"+(i+1);
+        //    element7.value = "vendor"+(i+1);
+ 
+            
+            var element8 = row.cells[7].childNodes[0];
+            element8.id = "vendor_poc"+ (i+1);
+            element8.name = "vendor_poc"+(i+1);
+      //      element8.value = "vendor_poc"+(i+1);
+           
+            var element9 = row.cells[8].childNodes[0];
+            element9.id = "vendor_email"+ (i+1);
+            element9.name = "vendor_email"+(i+1);
+      //      element9.value = "vendor_email"+(i+1);
+            
+            
+            var element10 = row.cells[9].childNodes[0];
+            element10.id = "vendor_tel"+ (i+1);
+            element10.name = "vendor_tel"+(i+1);
+    //        element10.value = "vendor_tel"+(i+1);
+            
+            
+            var element11 = row.cells[10].childNodes[0];
+            element11.id = "client"+ (i+1);
+            element11.name = "client"+(i+1);
+       //     element11.value = "client"+(i+1);
+            
+          var element12 = row.cells[11].childNodes[0];
+            element12.id = "status"+ (i+1);
+            element12.name = "status"+(i+1);
+     //       element12.value = "status"+(i+1);
+            
+            
+            }
+            }catch(e) {
+                alert(e);
+            }
+        }
+ 
+ </script>
+        
+        
+        
+        
+   </head>
+<body>
+    <%= form_for @status_report, :url=>{:action=>"create"} do |f| %>
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+              <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+               
+                        <img src="../../assets/logo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                             <%= render :partial=>"partials/link" %>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+     <!--       <div class="headingbg_img">
+                <div class="headingbg_padding">
+                    &nbsp;</div>
+                <div id="TransBg">
+                    &nbsp;</div>
+                <div class="lineheight">
+                    &nbsp;</div>
+                <div class="menu_space">
+                    &nbsp;</div>
+               </div>       -->
+               
+               
+            <div class="innercontentTS">
+           
+    
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>Weekly Status-Zone
+                        </b></td><td align="center">
+                  
+                     <%= render :partial=>'partials/welcome' %></td>                    
+                 </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td>
+
+	
+
+<p align="center" id="notice"><%= notice %></p>
+
+
+
+
+<table id="dataTable" border="1" class="grid">
+  <tr>
+  	
+    <th><b>Consultant name</b></th>
+    <th><b>Technology</b></th>
+    <th><b>Source of consultant</b></th>
+    <th><b>Source of requirement</b></th>
+    <th><b>Date</b></th>
+    <th><b>Vendor</b></th>
+    <th><b>Vendor Poc</b></th>
+    <th><b>Vendor email</b></th>
+    <th><b>Vendor phone</b></th>
+    <th><b>Client</b></th>
+    <th><b>Status</b></th>
+
+  </tr>
+
+<% @status_reports.each do  |status_report| %>
+  <tr>
+  	
+  
+  
+<td><%= status_report.consultant_name %></td> 
+     <td><%= status_report.technology %> </td>
+     <td><%= status_report.consultant_source %></td> 
+     <td><%= status_report.source_requirement %> </td>
+     <td><%= status_report.date %> </td>
+     <td><%= status_report.vendor %> </td>
+     <td><%= status_report.vendor_poc %> </td>
+     <td><%= status_report.vendor_email %> </td>
+     <td><%= status_report.vendor_tel %> </td>
+     <td><%= status_report.client %> </td>
+     <td><%= status_report.status %> </td>
+
+
+</tr>
+<% end %>
+
+
+</table>
+
+<div>
+	
+<div style="width:900px;overflow:auto">
+
+<table id="innertable" border="1" class="tbl">
+<br />
+<br />
+<tr> 
+	<th><b></b></th>
+	<th><b>Consultant name</b></th>
+    <th><b>Technology</b></th>
+    <th><b>Source of consultant</b></th>
+    <th><b>Source of requirement</b></th>
+    <th><b>Date</b></th>
+    <th><b>Vendor</b></th>
+    <th><b>Vendor Poc</b></th>
+    <th><b>Vendor email</b></th>
+    <th><b>Vendor phone</b></th>
+    <th><b>Client</b></th>
+    <th><b>Status</b></th>
+ </tr>
+<input type="hidden" id="hdncount" name="hdncount" value="1">
+
+<tr>
+<td><input type="checkbox"></td>
+<td> <input type="text" id="consultant_name1" name="consultant_name1"  /> </td>
+<td> <input type="text" id="technology1" name="technology1"  /> </td>
+<td> <input type="text" id="consultant_source1" name="consultant_source1"  /> </td>
+<td> <input type="text" id="source_requirement1" name="source_requirement1"   /> </td>
+<td> <input type="text" id="date1" name="date1"   /> </td>
+<td> <input type="text" id="vendor1" name="vendor1"  /> </td>
+<td> <input type="text" id="vendor_poc1" name="vendor_poc1"  /> </td>
+<td> <input type="text" id="vendor_email1" name="vendor_email1"   /> </td>
+<td> <input type="text" id="vendor_tel1" name="vendor_tel1"   /> </td>
+<td> <input type="text" id="client1" name="client1"   /> </td>
+<td> <input type="text" id="status1" name="status1"   /> </td>
+
+ </tr>
+ 
+ 
+ </table>
+
+<p align="left">
+<INPUT type="button" class="button_small" value="Add Row" onclick="addRow('innertable')" />
+
+ <INPUT type="button" class="button_med" value="Delete Row" onclick="deleteRow('innertable')" />
+</p>
+
+
+<br />
+<br />
+<br />
+
+<%= f.submit "Submit Report", :class=>"button_large" %>
+
+
+</div></div>
+
+
+
+   </td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                 <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+  <% end %>
+</body>
+</html>
+
+<% end %>
+
+
+<% if is_admin %>
+
+<%= render :partial => "admin" %>
+       
+<% end %>
+
+
+

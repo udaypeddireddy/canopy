@@ -1,0 +1,21 @@
+<p>
+Dear <b><%= @user.firstname %></b>,
+</p>
+
+<% @user_request = UserRequest.where(:id=>@request.id) %>
+
+<% @user_request.each do |request_status| %>
+your request for <%= request_status.request_for %> has been
+<% if request_status.is_approved==false %>
+<b style="color: red">Rejected</b>
+
+<p>If you have any questions or other concerns, you may direct them to[Hr/Manager]</p>
+<% else  %>
+<b style="color: green">Approved</b>
+<% end %>
+
+<% end %>
+
+<p>Thanks & Regards</p>
+<p><b>Admin,</b></p>
+<p><b>http://Canopyone.com.</b></p>

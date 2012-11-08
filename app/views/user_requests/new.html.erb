@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+        
+        
+  <%= stylesheet_link_tag "menustyles.css" %>
+      
+        <%= stylesheet_link_tag "Styles.css" %>
+        <%= stylesheet_link_tag "reset-min.css" %>
+        
+        
+        
+<script type="application/javascript">
+
+function signup(link)
+{
+	window.location.href =link;
+}
+
+
+        	
+function Approve()
+{
+		var flag=false;
+var x=document.getElementById("frm1");
+for (var i=0;i<x.length;i++)
+  {
+    if(x.elements[i].type=="checkbox")
+    {
+    	if(x.elements[i].checked)
+    	 flag=true;
+    	else
+    	flag=flag || false;
+    }
+  }
+  if(!flag)
+  {
+  	alert("Please select a atleast one checkbox");
+  	return false;
+  }
+  else
+	return true;
+}    	
+
+
+
+function select()
+
+{
+	var list=document.getElementById("user_request_request_for").value;
+	
+if(list=='select')
+{
+alert("Please Select Your Request");
+return false;
+}
+
+else if(document.getElementById("user_request_subject").value=="")
+{
+alert("Please Enter Subject");
+document.getElementById("user_request_subject").focus();
+return false;
+}
+else if(document.getElementById("user_request_body").value=="")
+{
+alert("Please Enter Body");
+document.getElementById("user_request_body").focus();
+return false;
+}
+
+
+
+else
+return true;
+}
+
+
+</script>
+        
+   </head>
+<body>
+    <%= form_for @request, :url=>{:action=>'create'},:html=>{:onsubmit=>"return select();"} do |f| %>
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+             <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="../../../../assets/header-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="../../../../assets/header-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+              
+                        <img src="../../../../assets/logo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                             <%= render :partial=>"partials/link" %>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+     <!--       <div class="headingbg_img">
+                <div class="headingbg_padding">
+                    &nbsp;</div>
+                <div id="TransBg">
+                    &nbsp;</div>
+                <div class="lineheight">
+                    &nbsp;</div>
+                <div class="menu_space">
+                    &nbsp;</div>
+               </div>       -->
+               
+               
+            <div class="innercontentTS">
+           
+    
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="../../../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>Request-Zone
+                        </b></td><td align="center">
+                <%= render :partial=>'partials/welcome' %>
+                </td>
+                      </tr>
+                      
+
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="../../../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td>
+
+    	
+                    	
+<div align="center" >
+
+<p style="color: green"><b><%= notice %></b></p>
+
+<strong><b>New Request</b></strong>
+<table border="1" class="grid">
+	<tr>
+
+
+<table>
+	
+	</br></br>
+	
+<% if is_admin %>	
+<tr>
+<td><b>User:</b></td><td><%= select_tag :user_id, options_for_select(  User.all.collect{|x| [x.firstname,x.id]}.insert(0,"Select")) %></td>
+	
+</tr>
+
+<% end %>
+<tr>
+
+<td><span style="color: Red">*</span><b>Request For:</b></td><td height="25"><%= f.select :request_for,[['select','select'],['Leave','Leave'],['Payslip','Payslip'],['Appraisal','Appraisal']] %></td> 
+</tr>
+<tr>
+<td><span style="color: Red">*</span><b>Subject:</b></td><td height="25"><%= f.text_field :subject,:placeholder => "Add subject" %></td>
+</tr>
+<tr>
+<td><span style="color: Red">*</span><b>Body:</b></td><td height="25"><%= f.text_area :body, :size=> '30*30' %></td>
+</tr>
+
+<tr><td>&nbsp;</td></tr>
+
+<tr>
+
+<td>&nbsp;</td><td><%= f.submit "Submit", :class=>"button_small" %>
+
+<% if is_admin %>
+
+<input type="button" value="Back" class="button_small" onclick="signup('<%= user_requests_path(current_user) %>')" ></input>
+<% else %>
+ <input type="button" value="Back" class="button_small" onclick="signup('<%= user_user_requests_path(current_user) %>')" ></input>
+<% end %>
+</td></tr>
+
+
+
+
+
+</table>
+
+
+
+	
+	</br></br>	
+	</br></br>
+</div>
+                    	
+                    	
+        </td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="../../../../assets/bottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="../../../../assets/bottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+   <% end %>
+</body>
+</html>
+                    
+

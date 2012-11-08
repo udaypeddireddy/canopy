@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_type: MyString
+  billing_type: MyString
+  role: MyString
+  is_admin: false
+
+two:
+  user_type: MyString
+  billing_type: MyString
+  role: MyString
+  is_admin: false

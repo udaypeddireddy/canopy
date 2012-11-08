@@ -1,0 +1,36 @@
+<li><%= link_to 'Home', summary_path %></li>
+
+<% if is_admin %>
+<li><%= link_to 'Timesheet' , timesheets_path %></li>
+<li><%= link_to 'AssginProjects', projects_path %></li>
+<li><%= link_to 'Confirmation Work Flow', placement_fulfilments_path  %></li>
+<li><%= link_to 'WeeklyStatus-Zone',status_reports_path %></li>
+<li><%= link_to 'Request Input-Zone', user_requests_path  %></li>
+<li><%= link_to 'Self Service-Zone', self_services_path %></li>
+<li><%= link_to 'Profile', user_personal_profiles_path(current_user) %></li>
+<li><%= link_to 'Change Password', changepassword_path %></li>
+
+<% end %>
+                            
+<% if recruiter  %>
+<li><%= link_to 'Timesheet', user_timesheets_path(current_user)  %></li>
+<li><%= link_to 'Confirmation Work Flow', placement_fulfilments_path  %></li>
+<li><%= link_to 'WeeklyStatus-Zone', user_status_reports_path(current_user)  %></li>
+<li><%= link_to 'Request Input-Zone', user_user_requests_path(current_user)  %></li>
+<li><%= link_to 'Self Service-Zone', self_services_path %></li>
+<li><%= link_to 'Profile', user_personal_profiles_path(current_user) %></li>
+<li><%= link_to 'Change Password', changepassword_path %></li>
+
+
+<% end %>
+
+ <% if !is_admin && !recruiter %>
+ <% if project_assigned.present? %>
+<li><%= link_to 'Timesheet', user_timesheets_path(current_user)  %></li>
+<li><%= link_to 'Request Input-Zone', user_user_requests_path(current_user)  %></li>
+<% end %>
+<li><%= link_to 'Self Service-Zone', self_services_path %></li>
+<li><%= link_to 'Profile', user_personal_profiles_path(current_user) %></li>
+<li><%= link_to 'Change Password', changepassword_path %></li>
+<% end %>
+<li> <%= link_to 'Logout', log_out_path %></li> 

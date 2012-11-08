@@ -1,0 +1,51 @@
+<%= form_for (@vendor_contact), :url=>{:action=>"create"} do |f| %>
+  <% if @vendor_contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor_contact.errors.count, "error") %> prohibited this vendor_contact from being saved:</h2>
+
+      <ul>
+      <% @vendor_contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+
+  <% end %>
+
+<table>
+  <tr><td><b>
+    <%= f.label :poc_name %>:</b></td><td height="30">
+    <%= f.text_field :poc_name %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :poc_email %>:</b></td><td height="30">
+    <%= f.text_field :poc_email %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :poc_alternate_email %>:</b></td><td height="30">
+    <%= f.text_field :poc_alternate_email %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :sub_sign_authority %>:</b></td><td height="30">
+    <%= f.text_field :sub_sign_authority %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :sub_sign_authority_title %>:</b></td><td height="30">
+    <%= f.text_field :sub_sign_authority_title %>
+  </td></tr>
+  <tr><td><b>
+    
+    <%= f.hidden_field :vendor_id, :value=>params[:vendor_id] %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :phone %>:</b></td><td height="30">
+    <%= f.text_field :phone %>
+  </td></tr>
+  <tr><td><b>
+    <%= f.label :phone_extension %>:</b></td><td height="30">
+    <%= f.text_field :phone_extension %>
+  </td></tr>
+ <tr><td></td><td>
+    <%= f.submit "submit",:class=>"button_large" %>
+  </td></tr>
+<% end %>
+</table>

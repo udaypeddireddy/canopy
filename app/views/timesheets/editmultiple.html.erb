@@ -1,0 +1,45 @@
+<%= form_for @timesheet, :url=>{:action=>'update_multiple'} do |f| %>
+
+
+
+<div class="field">
+<font>Date-Worked</font><br />
+    <%= f.text_field :date_worked %>
+  </div>
+  
+
+  <div class="field">
+ <font>Document-Name</font><br /> 
+    <%= f.text_field :document_name %>
+  </div>
+  
+  <div class="field">
+    <font>Hours-Worked</font><br />
+    <%= f.text_field :hours_worked %>
+  </div>
+  
+    <div class="field">
+  <font>Proof-Path</font><br />
+    <%= f.text_field :proof_path %>
+  </div>
+  
+  <div class="field">
+ <font>Proof-Uploaded</font><br />
+    <%= f.text_field :proof_uploaded %>
+  </div>
+  
+    <div class="field">
+ <font>Status</font><br />
+    <%= f.text_field :status %>
+  </div>
+  
+
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+  
+  
+<% end %>
+

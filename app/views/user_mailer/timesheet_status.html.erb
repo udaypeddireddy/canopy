@@ -1,0 +1,46 @@
+
+
+<p>Dear <b><%= @user.firstname + " " + @user.lastname %></b></p>
+ 
+<p>
+Your timesheet report for <b><%= Date.strptime(@timesheet.start_date.to_s,"%Y-%m-%d").strftime("%m-%d-%Y") %></b>&nbsp; to&nbsp; <b><%= Date.strptime(@timesheet.end_date.to_s,"%Y-%m-%d").strftime("%m-%d-%Y") %>.</b>
+</p>
+
+<table  border="1">
+
+<% @user_timesheet = Timesheet.where(:id=>@timesheet.id) %>
+<% @user_timesheet.each do |timesheet_status| %>
+<% sum=0.0 %>
+<tr><th>Day</th>
+	<th>Date</th>
+	<th>Regular-Time</th>
+	<th>Over-Time</th>
+</tr>
+
+<% @timesheet_details = TimesheetDay.where(:timesheet_id=>timesheet_status)%>
+<% @timesheet_details.each do |work_day| %>
+<tr><td><%= Date.strptime(work_day.date.to_s,"%Y-%m-%d").strftime("%A") %></td>   
+<td><%= Date.strptime(work_day.date.to_s,"%Y-%m-%d").strftime("%m-%d-%Y") %></td>
+<td><%= work_day.regular_time %></td>
+<td><%= work_day.over_time %></td>
+<% total=work_day.regular_time + work_day.over_time %>
+<% sum= sum+total %>
+<% end %>
+
+</tr>
+<tr>
+<td colspan="4"><b>Status:</b>&nbsp;<% if timesheet_status.status==false %>
+<b style="color: red">Rejected</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<% else %>
+<b style="color: green">Approved</b>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<% end %>
+<b>Total-Hours:</b>&nbsp;<%= sum %></td></tr>
+<% end %>
+
+
+</table>
+
+<p>Please contact your Hr/Manager for any Clarification</p>
+
+<p>Thanks & Regards</p>
+<p><b>Admin,</b></p>
+<p>http://www.canopyone.com.</p>

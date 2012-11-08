@@ -1,0 +1,17 @@
+<h1>Organization Profile</h1>
+
+<table border="1">
+  <tr>
+    <th>User Type</th>
+    <th>Billing Type</th>
+    <th>Role</th>
+    </tr>
+    <tr><td><%= @profile.user_type %></td>
+    	<td><%= @profile.billing_type %></td>
+    	<td><%= @profile.role %></td>
+    	<td><%= link_to 'show', user_organizationprofile_path(@user,@profile) %> ||
+    		  <%= link_to 'edit', edit_user_organizationprofile_path(@user,@profile) %>
+    		  </td>
+
+</tr>
+</table>

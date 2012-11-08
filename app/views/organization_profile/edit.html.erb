@@ -1,0 +1,22 @@
+
+<%= form_for @profile, :url=>{:action=>'update'} do |f| %>
+
+<div class="field">
+    <%= f.label :user_type %><br />
+    <%= f.text_field :user_type %>
+  </div>
+  
+
+  <div class="field">
+    <%= f.label :biling_type %><br />
+    <%= f.text_field :billing_type %>
+  </div>
+   <div class="field">
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

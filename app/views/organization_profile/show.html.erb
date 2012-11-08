@@ -1,0 +1,14 @@
+
+<p id="notice"><%= notice %></p>
+
+
+		
+
+    <p>usertype:<%= @profile.user_type %></p>
+ 
+    <p>Billing Type: <%= @profile.billing_type %></p>
+    <p> Role: <%= @profile.role %>
+
+  <p>  <%= link_to 'edit', edit_user_organizationprofile_path(@user,@profile) %>
+    
+        <%= link_to 'Back', user_organizationprofile_path %></p>

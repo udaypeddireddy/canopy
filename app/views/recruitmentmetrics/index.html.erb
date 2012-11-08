@@ -1,0 +1,12 @@
+
+		<p>Recruitment Metrics </p>
+
+    <p>Placement Status:   <% if !@rec_metric.placement_success %><%= "rejected"%></p>
+    <%else%> <%= "accepted "%>
+    <%end %>
+ 
+   
+
+  <p>  <%= link_to 'edit', edit_user_recruitmentmetric_path(@user,@rec_metric) %>
+    
+   

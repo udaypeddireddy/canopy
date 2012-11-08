@@ -1,0 +1,35 @@
+<h1>Listing vendor_contacts</h1>
+
+<table>
+  <tr>
+    <th>Poc name</th>
+    <th>Poc email</th>
+    <th>Poc alternate email</th>
+    <th>Sub sign authority</th>
+    <th>Sub sign authority title</th>
+    <th>Vendor</th>
+    <th>Phone</th>
+    <th>Phone extension</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vendorcontacts.each do |vendor_contact| %>
+  <tr>
+    <td><%= vendor_contact.poc_name %></td>
+    <td><%= vendor_contact.poc_email %></td>
+    <td><%= vendor_contact.poc_alternate_email %></td>
+    <td><%= vendor_contact.sub_sign_authority %></td>
+    <td><%= vendor_contact.sub_sign_authority_title %></td>
+    <td><%= vendor_contact.vendor_id %></td>
+    <td><%= vendor_contact.phone %></td>
+    <td><%= vendor_contact.phone_extension %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Back', vendor_path(@vendor) %>

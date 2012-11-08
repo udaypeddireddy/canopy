@@ -1,0 +1,324 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+<%= stylesheet_link_tag "menustyles.css" %>
+      
+        <%= stylesheet_link_tag "Styles.css" %>
+        <%= stylesheet_link_tag "reset-min.css" %>
+
+ <style>
+ 	
+select
+{
+	width: 150px;
+} 
+
+
+ </style>
+ 
+        
+        <script type="application/javascript">
+	
+	function back(link)
+{
+	window.location.href =link;
+}
+
+
+        
+        	function selected(id)
+        	{
+        		
+        		var vendor_id=id;
+        		document.getElementById("lnksubvendor").href +="?vid="+id;
+        		var url=document.getElementById("lnkclient").href;
+        		url=url.replace("1/",id+"/")
+        		document.getElementById("lnkclient").href=url;
+        		if(document.getElementById("lnkclient").href.indexOf("?")>0)
+        		document.getElementById("lnkclient").href+="&vid="+id;
+        		else
+        		document.getElementById("lnkclient").href+="?vid="+id;
+                document.getElementById("newconsultant").href+="?vid="+id;
+        
+        	}
+        	function sub_vendor_selected_value(sub_vendor_id)
+        	{
+        		if(document.getElementById("lnkclient").href.indexOf("?")>0)
+        		{
+        		   document.getElementById("lnkclient").href+="&sid="+sub_vendor_id;
+        		}
+        		else
+        		document.getElementById("lnkclient").href+="?sid="+sub_vendor_id;
+        		
+        		document.getElemeById("newconsultant").href+="?sid="+sub_vendor_id;
+        		
+        	}
+        	function client_selected_value(client_id)
+        	{
+        		document.getElemeById("newconsultant").href+="?client_id="+client_id;
+        	}
+        </script>
+   </head>
+<body>
+   <%= form_for(@placement_fulfilment) do |f| %>
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+              <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="../../assetsheader-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="../../assetsheader-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+               
+                        <img src="../../assetslogo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                             <%= render :partial=>"partials/link" %>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+     <!--       <div class="headingbg_img">
+                <div class="headingbg_padding">
+                    &nbsp;</div>
+                <div id="TransBg">
+                    &nbsp;</div>
+                <div class="lineheight">
+                    &nbsp;</div>
+                <div class="menu_space">
+                    &nbsp;</div>
+               </div>       -->
+               
+               
+            <div class="innercontentTS">
+           
+    
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="../../assetsbody_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assetsbody_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>Placement Events
+                        </b></td><td align="center">
+                 <%= render :partial=>'partials/welcome' %>
+                </td>
+                      </tr>
+                      
+
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assetsbody_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="../../assetsbody_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assetsbody_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td>
+
+             
+<div align="center">
+
+
+<% if @placement_fulfilment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@placement_fulfilment.errors.count, "error") %> prohibited this placement_fulfilment from being saved:</h2>
+
+      <ul>
+      <% @placement_fulfilment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+   </div>
+  <% end %>
+
+
+<div>
+
+<p>
+    <b><%= f.label :vendor_id %>:</b>
+    <%= f.select :vendor_id, vendors_menu_collection(),{:selected=>params[:vid]},:onchange =>'selected(this.value)' %>  || <%= link_to "New Vendor", new_vendor_path  %>
+</p>
+</div> 
+
+</br> 
+ <div>
+ 	<p>
+       <b><%= f.label :subvendor_id %>:</b>
+       <%= f.select :subvendor_id, child_vendors_menu_collection(),{:selected => params[:sid]}, :onchange=>'sub_vendor_selected_value(this.value)' %>   || 
+       <%= link_to "New Sub Vendor", new_vendor_path(:vid=>params[:vid]), :id=>"lnksubvendor" %>
+
+</p>
+</div>  
+
+</br>
+
+<div>
+<p>
+    <b><%= f.label :client_id %>:</b>
+    <% if params[:client_id]==nil %>
+    <%= f.select :client_id, clients(), {:prompt => "Select"},:onchange=>'client_selected_value(this.value)' %> 
+    <% else %>
+    <%= f.select :client_id, clients(), {:selected=> params[:client_id]},:onchange=>'client_selected_value(this.value)' %> 
+    <% end %>
+    || 
+
+      <% if(params[:vid])  %>
+      <%= link_to "New Client", new_vendor_client_path(params[:vid],:sid=>params[:sid]), :id=> "lnkclient" %>
+      <%  else %>
+      <%= link_to "New Client", new_vendor_client_path('1'), :id=> "lnkclient" %>
+      <% end %>
+      
+</p>      
+</div>
+      
+</br>  
+<div>
+<p>
+<b>
+    <%= f.label :consultant_id %>:</b>&nbsp;
+    <%= f.select :consultant_id, consultants_menu_collection(), :prompt => "Select" %>  || <%= link_to "New Consultant", newconsultant_path, :id=>"newconsultant"  %>
+&nbsp;
+</p>
+</div>
+
+</br>
+
+<div>
+<p>
+ <b><%= f.label :consultant_type %>:</b>&nbsp;
+<%= f.select :consultant_type, options_for_select(["Select", "C2C", "W2"]) %>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;
+</p>
+</div>
+
+</br>
+
+  <div>
+  	<p>
+    <b>Sales Person:</b>
+    <%= f.select :salesperson_id, recruiters_menu_collection(), :prompt => "Select" %>  || <%= link_to "New Sales Person", new_sales_person_path  %>
+</p>
+</div>
+
+</br>
+
+ <div>	
+ <p> 	
+  	<b><%= f.label :rate_code %>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :rate_code, :size=>'20' %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
+  </p>
+  </div>
+</br> 
+
+  
+  <div>
+<p>  	
+   <%= f.hidden_field :recruiter_id, :value=>current_user.id %>
+</p>
+</div>
+<div>
+   <%= f.submit "Submit", :class=>"button_small" %> &nbsp;&nbsp;
+   	
+   	<input type="button" value="Back" class="button_small" onclick="back('<%= placement_fulfilments_path  %>')" ></input>
+</div>
+
+
+ </div>
+     
+ 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assetsbody_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                 <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="../../assetsbottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="../../assetsbottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+    <% end %>
+</body>
+</html>
+
+

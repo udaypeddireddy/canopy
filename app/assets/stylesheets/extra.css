@@ -1,0 +1,78 @@
+
+input {
+border : 1px solid #000;
+
+}
+input:hover {
+	background-color: #FFFF99
+}
+
+input, select{
+	
+border: 1px solid #000;
+	
+}
+textarea {
+	border-color: black;
+	border-style: solid;
+	border-width: thin;
+	padding: 3px;
+}
+
+.font
+{
+	color:black;
+	font-style:normal;
+	font-size:12px;
+	font-weight: bolder;
+	text-transform:capitalize;
+}
+
+.button5{
+-moz-border-radius:50px;
+-webkit-border-radius:50px;
+border-radius:50px;
+
+
+-moz-box-shadow:0 1px 0 rgba(0, 0, 0, 0.9);
+-webkit-box-shadow:0 1px 0 rgba(0, 0, 0, 0.9);
+box-shadow:0 1px 0 rgba(0, 0, 0, 0.9);
+
+background: -moz-linear-gradient(19% 75% 90deg, #4183D4, #55a9e8);
+
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#55a9e8), to(#4183D4));
+
+color:#f0f0f0;
+float:left;
+font-family:arial,helvetica,sans-serif;
+font-size:13px;
+font-weight:bold;
+padding:5px 16px;
+text-shadow:0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.button5:hover{
+background: -moz-linear-gradient(19% 75% 90deg, #4183D4, #55a9e8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#378dcd), to(#20559A));
+-moz-box-shadow:0 0 8px rgba(0, 0, 0, 0.6) inset;
+-webkit-box-shadow: none;
+box-shadow:0 0 8px rgba(0, 0, 0, 0.6) inset;
+}
+div.centered 
+{
+text-align: center;
+}
+div.centered table 
+{
+margin: 0 auto; 
+text-align: left;
+}
+
+
+
+
+
+
+
+
+

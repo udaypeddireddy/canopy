@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+        
+  <%= stylesheet_link_tag "menustyles.css" %>
+  <%= stylesheet_link_tag "Styles.css" %>
+  <%= stylesheet_link_tag "reset-min.css" %>
+        
+
+        
+<script type="application/javascript">
+
+
+function newrequest(link)
+{
+	window.location.href =link;
+}
+
+
+        	
+function Approve()
+{
+		var flag=false;
+var x=document.getElementById("frm1");
+for (var i=0;i<x.length;i++)
+  {
+    if(x.elements[i].type=="checkbox")
+    {
+    	if(x.elements[i].checked)
+    	 flag=true;
+    	else
+    	flag=flag || false;
+    }
+  }
+  if(!flag)
+  {
+  	alert("Please select a atleast one checkbox");
+  	return false;
+  }
+  else
+	return true;
+}    	
+
+
+
+function select()
+
+{
+	var list=document.getElementById("user_request_request_for").value;
+	
+if(list=='select')
+{
+alert("Please Select Your Request");
+return false;
+}
+
+else if(document.getElementById("user_request_subject").value=="")
+{
+alert("Please Enter Subject");
+document.getElementById("user_request_subject").focus();
+return false;
+}
+else if(document.getElementById("user_request_body").value=="")
+{
+alert("Please Enter Body");
+document.getElementById("user_request_body").focus();
+return false;
+}
+
+
+
+else
+return true;
+}
+
+
+</script>
+        
+   </head>
+<body>
+    <%= form_for :user_request,:url=>{:action=>:update_requests} , :html=>{:id=>'frm1', :onsubmit=>'return Approve();'} do %>
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+             <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="/../../assets/header-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="/../../assets/header-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+              
+                        <img src="/../../assets/logo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                             <%= render :partial=>"partials/link" %>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+     <!--       <div class="headingbg_img">
+                <div class="headingbg_padding">
+                    &nbsp;</div>
+                <div id="TransBg">
+                    &nbsp;</div>
+                <div class="lineheight">
+                    &nbsp;</div>
+                <div class="menu_space">
+                    &nbsp;</div>
+               </div>       -->
+               
+               
+            <div class="innercontentTS">
+           
+    
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="/../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="/../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>Request-Zone
+                        </b></td><td align="center">
+                <%= render :partial=>'partials/welcome' %>
+                </td>
+                      </tr>
+                      
+
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="/../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="/../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="/../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td>
+
+    	
+                    	
+<div align="center" >
+  </br>
+  <p style="color: green"><b><%= notice %></b></p>
+  </br></br>
+  
+
+  
+<table border="1" class="grid">
+	<tr>
+	
+<% unless @user_request.blank? %>
+		
+<% if is_admin %>
+	<th><b>Select </b></th>
+<% end %>
+<th><b>User Name </b></th>
+	<th><b>Request For</b></th>
+	<th><b>Subject</b></th>
+	<th><b>Body</b></th>
+	<th><b>Status</b></th>
+	<th><b>Action</b></th>
+	</tr>
+	<% @user_request.each do |request| %>
+<tr>
+<% if is_admin %>
+
+<% if request.is_approved ==false || request.is_approved ==nil %>
+	<td><%= check_box_tag "request_ids[]", request.id %></td>
+<% else %>
+<td> </td>
+<% end %>
+<% end %>
+
+<td><%= request_user_name(request.user) %></td>
+<td><%= request.request_for %></td>
+<td><%= request.subject %></td>
+<td><%= truncate request.body %></td>
+<td>
+	<% if request.is_approved ==true %>
+	<%= "Accepted" %>
+	<% else if request.is_approved ==false %>
+	<%= "Rejected" %>
+	<% else if %>
+	<%= "Waiting for Approval" %>
+	<% end %>
+	<% end %>
+	<% end %></td>
+		
+<% if is_admin %>
+		<td>
+		<%= link_to "Show", user_request_path(request) %>
+		</td>
+<% else %>
+		<td><%= link_to "Show", user_user_request_path(current_user,request) %></td>
+		
+		<% end %>
+</tr>
+	<% end %>
+	
+	<% else %>
+	
+	<B style="color: red">NO Requests  Found</B>
+	<% end %>
+	
+</table>
+	
+<% if is_admin %>
+
+<table>
+</br>
+<td><%= submit_tag "Approve", :name=>"approve", :class=>"button_small" %> || <%= submit_tag "Reject", :name=>"reject",:class=>"button_small" %></td>
+<% end %>
+
+</table>	
+
+ </div>  
+ <div align="center">
+</br></br></br>
+<% if is_admin %>
+
+<input type="button" value="New Request" class="button_large" onclick="newrequest('<%= new_user_request_path %>')" ></input>
+<% else %>
+
+<input type="button" value="New Request" class="button_large" onclick="newrequest('<%= new_user_user_request_path(current_user) %>')" ></input>
+</div>
+<% end %>
+
+
+                 	
+                    	
+        </td>
+                  </tr>
+                  <tr>
+                    <td><img src="/../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="/../../assets/bottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="/../../assets/bottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+    <% end %>
+</body>
+</html>
+                    
+          

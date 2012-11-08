@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+<p>
+  <b>Consultant name:</b>
+  <%= @statusreport.consultant_name %>
+</p>
+
+<p>
+  <b>Technology:</b>
+  <%= @statusreport.technology %>
+</p>
+
+<p>
+  <b>Source consultant:</b>
+  <%= @statusreport.consultant_source %>
+</p>
+
+<p>
+  <b>Source requirement:</b>
+  <%= @statusreport.source_requirement %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @statusreport.date %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @statusreport.vendor %>
+</p>
+
+<p>
+  <b>Vendor poc:</b>
+  <%= @statusreport.vendor_poc %>
+</p>
+
+<p>
+  <b>Vendor email:</b>
+  <%= @statusreport.vendor_email %>
+</p>
+
+<p>
+  <b>Vendor phone:</b>
+  <%= @statusreport.vendor_tel %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @statusreport.client %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @statusreport.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_status_report_path(@statusreport) %> |
+<%= link_to 'Back', status_reports_path %>
+

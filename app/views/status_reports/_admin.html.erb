@@ -1,0 +1,298 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<meta http-equiv="refresh" content="100" /> -->	
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+
+        <%= stylesheet_link_tag "menustyles.css" %>
+        <%= stylesheet_link_tag "Styles.css" %>
+        <%= stylesheet_link_tag "reset-min.css" %>
+        
+
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+ 
+<script>
+  $(document).ready(function() {
+        $("#start_datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+    $("#end_datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+
+  });
+</script>        
+
+<script>
+function formatDate(value)
+{
+var fm =value.getMonth();
+var fd = value.getDay();
+var fy = value.getFullYear();
+
+var lm =value.getMonth();
+var ld = value.getDate();
+var ly = value.getFullYear();
+
+}
+function show(aval) {
+	
+var curr = new Date; // get current date
+var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
+var last = first - 6; // last day is the first day + 6
+
+var firstday = new Date(curr.setDate(first));
+var fm =firstday.getMonth()+1;
+var fd = firstday.getDate();
+var fy = firstday.getFullYear();
+var fdate = fy +'/'+ fm +'/'+fd;
+
+var lastday = new Date(curr.setDate(last));
+var lm =lastday.getMonth()+1;
+var ld = lastday.getDate();
+var ly = lastday.getFullYear();
+var ldate = ly +'/'+ lm +'/'+ld;
+
+
+var lastday = new Date(curr.setDate(last));
+
+document.getElementById("start_datepicker").value=ldate;
+document.getElementById("end_datepicker").value=fdate;
+	
+if (aval == "list") {
+optionyes.style.visibility='visible';
+optionyes.style.display='block';
+optionno.style.visibility='hidden';
+optionno.style.display='none';
+} 
+else if (aval == "weekly") {
+optionyes.style.visibility='hidden';
+optionyes.style.display='none';
+
+optionno.style.visibility='visible';
+optionno.style.display='block';
+}
+else
+{
+optionyes.style.visibility='hidden';
+optionyes.style.display='none';
+optionno.style.visibility='hidden';
+optionno.style.display='none';
+	
+}
+
+}
+
+function validation()
+{
+
+var listBoxSelection=document.getElementById("id").value;
+if(document.getElementById("ddltype").value=="list")
+{
+	if(listBoxSelection=="Select")
+    {
+       alert("Please select Recruiter");
+       return false;
+    }
+}
+else
+{
+
+    
+    
+	var recruiter=document.getElementById("recruiter_id").value;
+    var start=document.getElementById("start_datepicker").value;
+    var end=document.getElementById("end_datepicker").value;
+
+  
+    if(start=="")
+    {
+	   alert("Please Select Start-Date");
+	   return false;
+    }
+    else if(end=="")
+    {
+	  alert("Please Select End-Date");
+	  return false;
+	}	
+	else if (recruiter=="Select") 
+	{
+	alert("Please select Recruiter");
+	return false;
+	}
+}
+return true;
+}
+
+</script>
+        
+</head>
+<body>
+  <%= form_for :status_report, :url=>{:action=>"list"},:html=>{:onsubmit=>'return validation();'} do %>
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+            <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="../../assets/header-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+                
+                        <img src="../../assets/logo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                             <%= render :partial=>"partials/link" %>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+       
+            
+               
+            <div class="innercontentTS">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>
+Weekly Status-Zone
+                        </b></td><td align="center">
+        
+<%= render :partial=>'partials/welcome' %>
+                 
+                </td>
+                      </tr>
+                      
+
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td>
+
+</br>
+</br>
+
+<div align="center">
+
+<div>
+<b>ViewType:</b>
+<select name="file" id="ddltype" onchange="show(this.options[this.selectedIndex].value)">
+<option selected="selected">Select</option>
+<option value="list" >List</option>
+<option value="weekly">Weekly</option>
+</select>
+</div>
+
+<div id="optionyes" style="visibility:hidden">
+<b>Recruiter:</b><%= select_tag :id, options_for_select(recruiters_menu_collection().insert(0,"Select")) %>  
+<%= submit_tag "Submit", :name=>"list", :class=>"button_small" %>
+</div>
+
+
+<div id="optionno" style="visibility:hidden">
+<b>Start Date:</b> <input type="text" name="startdate" id="start_datepicker" >
+<b>End Date:</b> <input type="text" name="enddate" id="end_datepicker" >
+<b>Recruiter:</b>
+<%= select_tag :recruiter_id, options_for_select(recruiters_menu_collection().insert(0,"Select")) %>    
+<%= submit_tag "Submit", :name=>"weekly", :class=>"button_small" %>
+
+
+</div>
+
+</div>    
+
+
+
+</td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="../../assets/bottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+  <% end %>
+</body>
+</html>
+

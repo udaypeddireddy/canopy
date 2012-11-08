@@ -1,0 +1,18 @@
+<div align="center">
+	<p id="notice"><%= notice %></p>
+	
+
+
+<p>
+<b>Consultant:</b> <%= select_tag :id, options_for_select(  @user.collect{|x| [x.firstname,x.id]}.insert(0,"Select")) %>
+</p>
+
+<p><b>Project:</b> <%= select_tag :pro_id, options_for_select(@project.collect{|p| [p.projectname,p.pro_id]}.insert(0,"Select")) %>
+	</p>
+
+<%= submit_tag "Assign", :confirm=>"Are you sure", :class=>"button_small" %>
+
+<% end %>
+
+
+</div>

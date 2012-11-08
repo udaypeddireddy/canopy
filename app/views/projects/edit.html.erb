@@ -1,0 +1,190 @@
+<%= form_for @project, :url=>{:action=>"update"} do |f| %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" >
+    <title>Welcome To Canopy One Solutions is an IT Solution Provider and general IT consulting
+        company</title>
+        
+        
+<%= stylesheet_link_tag "menustyles.css" %>
+      
+        <%= stylesheet_link_tag "Styles.css" %>
+        <%= stylesheet_link_tag "reset-min.css" %>      
+        
+        
+        
+   </head>
+<body>
+    <form id="form1" >
+   
+   <div class="maindiv">
+        <div class="spacer">
+            &nbsp;</div>
+        <div class="innerdiv">
+              <div class="top-header">
+                <p style="width: 24px;">
+                    <img src="../../../../assets/header-top-left.jpg" alt="Canopy One" /></p>
+                <p class="header-bg">&nbsp;
+                    </p>
+                <p style="width: 24px;">
+                    <img src="../../../../assets/header-top-right.jpg" alt="Canopy One" /></p>
+            </div>
+            <!--Header Begin-->
+            <div class="header">
+                <div class="floatleft">
+               
+                        <img src="../../../../assets/logo.jpg" style="padding: 0px 0px 0px 12px; border: 0px;" alt="Canopy One" /></div>
+               <div id="global_office">
+                   
+                </div>
+                                   <div id="global_officeforms">
+                    <div id="topnav">
+                        <ul id="dropdownmenu">
+                             <%= render :partial=>"partials/link" %>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="innercontentTS">
+           
+    
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">  <!--width="934"-->
+      <tbody><tr>
+        <td valign="top"></td>
+      </tr>
+      <tr>
+        <td></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td align="left" height="10">
+                  </td>
+            </tr>
+            <tr>
+              <td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td valign="top"><table border="0" cellpadding="0" cellspacing="0">  <!--width="660"-->
+              <tbody><tr>
+                <td><table background="../../../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                    <td><table align="center" border="0" cellpadding="3" cellspacing="0" width="978">
+                      <tbody><tr>
+                        <td class="innerheadingts" align="left" height="25" style="padding-left:7px"><b>Edit-Project
+                        </b></td><td align="center">
+                   
+                                      
+                   <% if is_admin %>
+                  <font  class="innerheadingts">  <b>Welcome :</b></font>
+                  <font color="#FF6600">  <b><%= current_user.firstname%></b> </font>&nbsp;
+                    <% else %> 
+                    <font  class="innerheadingts">  <b>Welcome :</b></font>
+                    &nbsp;&nbsp; <font color= "#FF6600" ><b><%= current_user.firstname%></b></font>&nbsp;
+                <font  class="innerheadingts">  <b>Client :</b></font>      &nbsp;&nbsp;<%= client.name %>
+                    
+                    <% end %>
+                      </tr>
+                      
+
+                    </tbody></table></td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td><table background="../../../../assets/body_bg1.gif" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody><tr>
+                    <td><img src="../../../../assets/body_top1.gif" height="10" width="978"></td>
+                  </tr>
+                  <tr>
+                  	
+                    <td>
+
+<br />
+
+<br />
+<div align="center">
+	
+	
+	<table>
+<tr>
+<td><b>Project-Name:</b></td><td height="30"><%= f.text_field :projectname %></td></tr>
+<tr>
+<td><b>Descripton:</b></td><td height=""><%= f.text_field :description %></td></tr>
+<tr>
+<td><b>Location:</b></td><td height="30"><%= f.text_field :project_location %></td></tr>
+<tr>
+<td><b>Rate:</b></td><td height="30"><%= f.text_field :rate %></td></tr>
+<tr>
+<td><b>Start-Date:</b></td><td height="30"><%= f.text_field :start_date %></td></tr>
+<tr>
+<td><b>End-Date:</b></td><td height="30"><%= f.text_field :end_date %></td></tr>
+</br>
+
+
+<tr><td></td><td><%= f.submit "Add Project", :class=>"button_med" %></p></td>
+	
+</tr>
+</table>
+
+
+	
+	
+</div>
+                   
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img src="../../../../assets/body_bot1.gif" height="10" width="978"></td>
+                  </tr>
+                </tbody></table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+            </tr>
+        </tbody></table>
+
+             </td>
+            </tr>
+        </tbody></table>
+        
+        </div>
+                 <div class="clearboth" style="line-height: 2px;">
+                    &nbsp;</div>
+           
+            <div class="bottom-footer">
+                <p style="width: 24px;">
+                    <img src="../../../../assets/bottom-left.jpg" alt="Canopy One" /></p>
+                <p class="bottom-footerbg">
+                    Copyright @ 2009 Canopy One Solutions . all rights reserved.</p>
+                <p style="width: 24px;">
+                    <img src="../../../../assets/bottom-right.jpg" alt="Canopy One" /></p>
+            </div>
+        </div>
+        <div class="smallspacer">
+            &nbsp;</div>
+    </div>
+    </form>
+</body>
+</html>
+                    
+          <% end %>

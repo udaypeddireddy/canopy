@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  poc_name: MyString
+  poc_email: MyString
+  poc_alternate_email: MyString
+  sub_sign_authority: MyString
+  sub_sign_authority_title: MyString
+  vendor_id: 1
+  phone: MyString
+  phone_extension: MyString
+
+two:
+  poc_name: MyString
+  poc_email: MyString
+  poc_alternate_email: MyString
+  sub_sign_authority: MyString
+  sub_sign_authority_title: MyString
+  vendor_id: 1
+  phone: MyString
+  phone_extension: MyString

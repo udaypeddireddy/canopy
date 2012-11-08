@@ -1,0 +1,21 @@
+<style>
+.text
+{
+	text-transform:capitalize;
+}
+</style>
+<font  class="innerheadingts">  <b>Welcome :</b></font>
+<font color="#FF6600" class="text"> <b><%= current_user.firstname%></b> </font>&nbsp;
+
+<% if is_admin || recruiter %> 
+ 
+<% else if project_assigned.present? %>
+<font  class="innerheadingts">  <b>Client :</b></font> 
+<font color="#FF6600" class="text">  <b><%= client.name %></b> </font>&nbsp;
+
+<% else %>
+<font  class="innerheadingts" >  <b>Client :</b></font> 
+&nbsp;&nbsp;<font color= "red" > <b>Not Assigned to Any Project</b></font>
+
+<% end %> 
+<% end %>
